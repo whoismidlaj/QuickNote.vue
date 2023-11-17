@@ -27,10 +27,10 @@ const onSubmit = () => {
 </script>
 
 <template>
-    <div class="fixed bottom-0 w-full max-w-md p-5">
-        <form class="w-full" @submit.prevent="onSubmit">
+    <div class="w-full max-w-md p-5">
+        <form class="w-full h-full" @submit.prevent="onSubmit">
             <input v-model="title" id="title" class="w-full border-[1px] border-zinc-900 outline-none mb-2 p-2" type="text" placeholder="Title">
-            <textarea v-model="content" id="content" class="min-h-[20dvh] w-full border-[1px] border-zinc-900 outline-none mb-2 p-2" placeholder="Type you note"></textarea>
+            <textarea v-model="content" id="content" class="h-32 w-full border-[1px] border-zinc-900 outline-none mb-2 p-2" placeholder="Type you note"></textarea>
             <button class="bg-black text-white px-5 py-2">Add Note</button>
         </form>
     </div>

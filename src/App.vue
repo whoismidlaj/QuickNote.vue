@@ -4,18 +4,24 @@ import NoteList from './components/NoteList.vue';
 // import AddNoteBtn from './components/AddNoteBtn.vue';
 import AddNote from './components/AddNote.vue';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useToast } from 'vue-toastification';
 
 const toast = useToast();
 
-const notes = ref([
-  { id: 1, title: 'Note Title', content: 'note content is here' },
-  { id: 2, title: 'Note Title', content: 'note content is here' },
-  { id: 3, title: 'Note Title', content: 'note content is here' },
-  { id: 4, title: 'Note Title', content: 'note content is here' },
-  { id: 5, title: 'Note Title', content: 'note content is here' },
-]);
+const notes = ref([]);
+
+onMounted(() => {
+  const savedNotes = JSON.parse(localStorage.getItem('notes'));
+  if(savedNotes) {
+    notes.value = savedNotes;
+  }
+});
+
+const saveNotesToLocalStorage = () => {
+  localStorage.setItem('notes', JSON.stringify(notes.value));
+}
+
 
 const handleNoteSubmitted = (NoteData) => {
   notes.value.push({
@@ -25,6 +31,13 @@ const handleNoteSubmitted = (NoteData) => {
   })
   
   toast.success('Note Added');
+  saveNotesToLocalStorage();
+}
+
+const handleTransactionDeleted = (id) => {
+  notes.value = notes.value.filter((note) => note.id !== id);
+  toast.success('Note Deleted');
+  saveNotesToLocalStorage();
 }
 
 const generateUniqueID = () => {
@@ -36,8 +49,10 @@ const generateUniqueID = () => {
 <template>
   <div class="max-w-md mx-auto h-[100dvh]">
     <Header />
-    <NoteList :notes="notes" />
+    <div class="flex flex-col h-[90dvh]">
+    <NoteList class="flex-1" @note-deleted="handleTransactionDeleted" :notes="notes" />
     <!-- <AddNoteBtn /> -->
     <AddNote @-note-submitted="handleNoteSubmitted" />
+  </div>
   </div>
 </template>
