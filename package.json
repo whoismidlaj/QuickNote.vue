@@ -8,10 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/core": "^5.5.1",
     "vue": "^3.3.4",
     "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
+    "@capacitor/cli": "^5.5.1",
     "@vitejs/plugin-vue": "^4.4.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

@@ -1,0 +1,8 @@
+{
+  "appId": "com.whoismidlaj.quicknote",
+  "appName": "Quick Note",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
