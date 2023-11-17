@@ -1,0 +1,26 @@
+.Vue-Toastification__container {
+    padding: 1.25rem;
+}
+
+.Vue-Toastification__toast {
+    border-radius: 0;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+.Vue-Toastification__toast-body, .Vue-Toastification__close-button {
+    color: #000;
+}
+
+.Vue-Toastification__toast--error .Vue-Toastification__icon {
+    color: #ff5252;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__icon {
+    color: #4caf50;
+}
+
+.Vue-Toastification__progress-bar {
+    height: 1px;
+    background-color: #000;
+}
