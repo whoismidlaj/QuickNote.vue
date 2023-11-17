@@ -16,7 +16,7 @@ const closeNote = () => {
 </script>
 
 <template>
-<div class="p-5">
+<div class="p-5 mb-5">
     <div class="max-h-[50dvh] overflow-auto border-[1px] border-zinc-900 flex flex-col">
     <div v-for="note in notes" :key="note.id" class="border-b-[1px] last:border-b-0 border-zinc-900">
       <h2 @click="() => toggleNote(note)" class="p-5 text-lg font-medium">{{ note.title }}</h2>
